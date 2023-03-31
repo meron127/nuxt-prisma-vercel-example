@@ -1,3 +1,20 @@
+## Problem
+(Adding prisma items)  
+The project works fine in local development, but in vercel deployment, the web is crashed with this error show in logs.  
+![nuxt-prisma-vercel-example_error](https://user-images.githubusercontent.com/85394063/216226695-c83d9b01-b68b-45b5-b5b4-bfd266a35502.png)
+
+## Solution
+Probably find out the solution when reading the [nitro doc](https://nitro.unjs.io/deploy/providers/vercel) accidentally.  
+The default setting of deployment preset is 'vercel-edge' in the nuxt template provided in vercel.  
+However, my codes are not using prisma with data proxy (not edge function approach).  
+After changing deployment preset to 'vercel', it is able to see the homepage and call the api to fetch data from Supabase with prisma.  
+  
+Ref: [solution branch](https://github.com/meron127/nuxt-prisma-vercel-example/tree/solution)
+
+Below is original from nuxt template
+
+---
+
 # Nuxt Example
 
 Deploy your [Nuxt](https://nuxt.com) project to Vercel with zero configuration.
